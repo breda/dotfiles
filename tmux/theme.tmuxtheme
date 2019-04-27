@@ -1,0 +1,65 @@
+# Redraw status every 5mins
+set -g status-interval 300  
+
+# position
+set -g status-position top
+set -g status-justify right
+
+# Basic status bar colors
+set -g status-fg colour250
+set -g status-bg colour234
+
+# Left side of status bar
+set -g status-left-length 40
+set -g status-left "#[fg=colour250,bg=colour125,bold] #S #[fg=colour125,bg=colour25,nobold]#[fg=colour250,bg=colour25]  #(whoami) "
+
+# Right side of status bar
+set -g status-right-length 150
+# set -g status-right "#[fg=colour245,bg=colour240]#[fg=colour250,bg=colour24,bold] #H "
+set -g status-right " #[fg=colour251,bg=colour25,bold] #H "
+
+# Window status
+set -g window-status-format " #W#F "
+set -g window-status-current-format " #[bold]#W#F "
+
+# Current window status
+set -g window-status-current-bg colour25
+set -g window-status-current-fg colour250
+
+# Window with activity status
+set -g window-status-activity-bg colour31  # fg and bg are flipped here due to
+set -g window-status-activity-fg colour231 # a bug in tmux
+
+# Window separator
+set -g window-status-separator "  "
+
+# Window status alignment
+set -g status-justify centre
+
+# Pane border
+set -g pane-border-bg default
+set -g pane-border-fg colour238
+
+# Active pane border
+set -g pane-active-border-bg default
+set -g pane-active-border-fg colour24
+
+# Pane number indicator
+set -g display-panes-colour colour233
+set -g display-panes-active-colour colour245
+
+# Clock mode
+set -g clock-mode-colour colour24
+set -g clock-mode-style 24
+
+# Message
+set -g message-bg colour24
+set -g message-fg colour231
+
+# Command message
+set -g message-command-bg colour234
+set -g message-command-fg colour231
+
+# Mode
+set -g mode-bg colour24
+set -g mode-fg colour231

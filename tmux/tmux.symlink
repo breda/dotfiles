@@ -1,0 +1,37 @@
+# My prefix is Ctrl+a
+unbind C-b
+set-option -g prefix C-a
+bind-key C-a send-prefix
+
+set -g default-terminal "screen-256color"
+set -s escape-time 10
+set -sg repeat-time 600
+set -s focus-events on
+
+# Expect UTF8 
+set -q -g status-utf8 on
+setw -q -g utf8 on
+
+# Mouse on & history limit
+set -g mouse on
+set -g history-limit 50000
+
+# loud or quiet? quit for sure
+set-option -g visual-activity off
+set-option -g visual-bell off
+set-option -g visual-silence off
+set-window-option -g monitor-activity off
+set-option -g bell-action none
+
+# Theme
+source-file "$HOME/.dotfiles/tmux/theme.tmuxtheme"
+
+# Plugins
+# Install
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-sidebar'
+
+# Configure
+set-environment -g TMUX_PLUGIN_MANAGER_PATH "$HOME/.dotfiles/tmux/plugins"
+run -b "$HOME/.dotfiles/tmux/plugins/tpm/tpm"

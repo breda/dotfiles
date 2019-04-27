@@ -1,0 +1,4 @@
+plugins/
+resurrect/**/*
+sidebar/*.txt
+
