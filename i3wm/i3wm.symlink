@@ -220,10 +220,10 @@ bindsym $mod+Control+b bar mode toggle mainbar
 
 # Function keys
 ####################################
-bindsym XF86AudioRaiseVolume exec "amixer set Master 5%+"
-bindsym XF86AudioLowerVolume exec "amixer set Master 5%-"
-bindsym XF86AudioMute exec "amixer -D pulse sset Master toggle"
-bindsym XF86AudioMicMute exec "amixer -D pulse Capture toggle"
+bindsym XF86AudioRaiseVolume exec "amixer set Master 5%+ && pkill -RTMIN+12 i3blocks"
+bindsym XF86AudioLowerVolume exec "amixer set Master 5%- && pkill -RTMIN+12 i3blocks"
+bindsym XF86AudioMute exec "amixer -D pulse sset Master toggle && pkill -RTMIN+12 i3blocks"
+bindsym XF86AudioMicMute exec "amixer -D pulse Capture toggle && pkill -RTMIN+12 i3blocks"
 
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
@@ -233,7 +233,7 @@ bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
 exec --no-startup-id feh --bg-scale /home/breda/Pictures/wallpaper.jpg
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id start_conky_breda
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+exec --no-startup-id nitrogen --restore; sleep 1; compton -cf -b
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id blueman-applet
@@ -246,8 +246,8 @@ exec --no-startup-id redshift -m vidmode -l 36.7060094:3.1931789
 
 # Bar
 bar {
-	i3bar_command i3bar
-	status_command i3status
+	# i3bar_command i3bar
+	status_command i3blocks
 	id mainbar
 	position bottom
 	font pango:fontawesome 12

@@ -1,0 +1,43 @@
+# i3blocks config file
+# i3blocks-contrib used, from my own repo (I tweaked it for my needs)
+# https://github.com/vivien/i3blocks-contrib
+#
+
+# Global properties
+command=/usr/lib/i3blocks/$BLOCK_NAME
+separator_block_width=40
+
+# Volume indicator
+[volume]
+label=
+command=~/.dotfiles/i3wm/i3blocks-contrib/volume/volume
+instance=Master
+interval=once
+signal=12
+
+# Memory usage
+[memory]
+label=
+interval=10
+
+# CPU usage
+[cpu_usage]
+label=
+interval=10
+
+# Temperature
+[temperature]
+label=
+interval=60
+
+# Battery
+[battery2]
+command=~/.dotfiles/i3wm/i3blocks-contrib/battery2/battery2
+markup=pango
+interval=1
+
+# Date Time
+[time]
+label=
+command=date '+%Y-%m-%d %H:%M'
+interval=60

@@ -53,10 +53,20 @@ if [ -f ~/.i3/config ]; then
 fi
 ln -s "$I3/i3wm.symlink" ~/.i3/config && echo "Symlinked i3 config file"
 
-# i3-status
-if [ -f ~/.i3status.conf ]; then
-	mv ~/.i3status.conf ~/.i3status.conf.bak &&
-	echo "Found i3status config file in home directory (Backed up)"
+# i3-blocks
+if [ -d "$I3/i3blocks-contrib" ]; then
+	cd "$I3/i3blocks-contrib" && git pull --quiet
+	echo "Updated i3blocks contrib repo"
+else
+	git clone --quiet https://github.com/breda/i3blocks-contrib "$I3/i3blocks-contrib"
+	echo "Installed i3blocks contrib repo"
 fi
-ln -s "$I3/i3status.symlink" ~/.i3status.conf && echo "Symlinked i3status config"
+
+if [ -f ~/.i3blocks.conf ]; then
+	mv ~/.i3blocks.conf ~/.i3blocks.conf.bak &&
+	echo "Found i3blocks config file in home directory (Backed up)"
+fi
+ln -s "$I3/i3blocks.symlink" ~/.i3blocks.conf && echo "Symlinked i3blocks config"
+
+
 
