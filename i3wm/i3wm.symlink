@@ -74,15 +74,18 @@ bindsym $mod+a focus parent
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 ""
-set $ws2 ""
-set $ws3 ""
-set $ws4 ""
-set $ws5 ""
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 ""
-set $ws9 ""
-set $ws10 ""
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "0"
+set $wsHDMI "11"
+
+workspace $wsHDMI output HDMI2
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -95,6 +98,7 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
+bindsym $mod+p workspace $wsHDMI
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -135,7 +139,7 @@ mode "resize" {
 
 	# back to normal: Enter or Escape or $mod+r
 	bindsym Return mode "default"
-	bindsym Escape mode "default"
+	bindsym Escape mode "deault"
 	bindsym $mod+Shift+r mode "default"
 }
 
@@ -147,34 +151,39 @@ bindsym $mod+r mode "resize"
 
 # Variables
 ###################################
-set $bg-color 	         #2f343f
-set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
-set $urgent-bg-color     #E53935
+set $bg-color 	         	#1d1f21
+set $border-color 	 	#0988db
+set $border-color-inactive 	#13496e
+set $inactive-bg-color   	#2d2d2d
+set $text-color          	#f3f4f5
+set $inactive-text-color 	#676E7D
+set $urgent-bg-color     	#E53935
+
+set $bar-bg #1d1f21
 
 # this suspends the system & locks the screen
 set $locker "betterlockscreen --suspend"
 set $xautoLocker "betterlockscreen --lock"
 
-set $bar-bg #1d2128
 
 # Appearence
 ###################################
 
 # window colors
-#                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          #00ff00
-client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
-client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+#                       border              background         text                 indicator			# child border
+client.focused          $bg-color       $bg-color          $text-color              $border-color 		$border-color
+client.unfocused        $bg-color  	    $bg-color 	       $inactive-text-color $border-color		$border-color-inactive
+client.focused_inactive $bg-color  	    $bg-color 	       $inactive-text-color $border-color		$border-color-inactive
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $border-color		$border-color
+
+default_border pixel 1
 
 # Disable indicators
-hide_edge_borders both
+hide_edge_borders smart
 
 #i3-gaps specific config
-gaps inner 5
-gaps outer -5
+gaps inner 4
+gaps outer 4
 
 # Floating
 # Open specific applications in floating mode
@@ -208,10 +217,11 @@ for_window [title="Bluetooth Devices"] floating enable
 
 # Bindings
 ###################################
-bindsym $mod+b exec "google-chrome-stable"
+bindsym $mod+b exec "chromium"
+bindsym $mod+Shift+b exec "firefox-developer-edition"
 bindsym F12 exec i3
-bindsym F10 exec pcmanfm
-bindsym $mod+Return exec tilix --maximize --window-style=borderless
+bindsym Home exec pcmanfm -n
+bindsym $mod+Return exec tilix --maximize 
 bindsym $mod+Mod1+l exec $locker
 bindsym $mod+Shift+Mod1+l exec --no-startup-id blurlock
 bindsym Print exec --no-startup-id i3-scrot
@@ -220,27 +230,27 @@ bindsym $mod+Control+b bar mode toggle mainbar
 
 # Function keys
 ####################################
-bindsym XF86AudioRaiseVolume exec "amixer set Master 5%+ && pkill -RTMIN+12 i3blocks"
-bindsym XF86AudioLowerVolume exec "amixer set Master 5%- && pkill -RTMIN+12 i3blocks"
-bindsym XF86AudioMute exec "amixer -D pulse sset Master toggle && pkill -RTMIN+12 i3blocks"
-bindsym XF86AudioMicMute exec "amixer -D pulse Capture toggle && pkill -RTMIN+12 i3blocks"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer set Master 5%+ && pkill -RTMIN+12 i3blocks"
+bindsym XF86AudioLowerVolume exec --no-startup-id "amixer set Master 5%- && pkill -RTMIN+12 i3blocks"
+bindsym XF86AudioMute exec --no-startup-id "amixer -D pulse sset Master toggle && pkill -RTMIN+12 i3blocks"
+bindsym XF86AudioMicMute exec --no-startup-id "amixer -D pulse Capture toggle && pkill -RTMIN+12 i3blocks"
 
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
+bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight -inc 5"
+bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 5"
 
 # Startup programms
 #####################################
-exec --no-startup-id feh --bg-scale /home/breda/Pictures/wallpaper.jpg
+exec_always --no-startup-id feh --randomize --bg-scale /home/breda/Pictures/wallpapers/*
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id start_conky_breda
-exec --no-startup-id nitrogen --restore; sleep 1; compton -cf -b
+exec --no-startup-id nitrogen --restore # sleep 1; # compton -cf -b
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id blueman-applet
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcurso
 exec --no-startup-id xautolock -time 10 -locker $xautoLocker -nowlocker $xautoLocker -resetsaver -detectsleep
-exec --no-startup-id albert
+exec_always --no-startup-id albert
+exec_always --no-startup-id dunst
 exec --no-startup-id redshift -m vidmode -l 36.7060094:3.1931789
 
 
@@ -249,16 +259,17 @@ bar {
 	# i3bar_command i3bar
 	status_command i3blocks
 	id mainbar
-	position bottom
-	font pango:fontawesome 12
+	output eDP1
+	position top
+	font pango:fontawesome 10
 	separator_symbol "    "
-	height 30
+	height 28
 
 	colors {
 		background $bar-bg
 		#                  border             background         text
-		focused_workspace  $bar-bg            $bar-bg            $text-color
-		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+		focused_workspace  $border-color      $bar-bg      	 $text-color
+		inactive_workspace $bar-bg 	      $bar-bg 		 $inactive-text-color
 		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
 	}
 }

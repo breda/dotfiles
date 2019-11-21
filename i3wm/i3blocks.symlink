@@ -5,39 +5,48 @@
 
 # Global properties
 command=/usr/lib/i3blocks/$BLOCK_NAME
-separator_block_width=40
+separator_block_width=30
+
+
+# Memory usage
+[memory/memory]
+label= 
+interval=10
+
+# CPU usage
+[cpu_usage/cpu_usage]
+label= 
+interval=10
+
+# Temperature
+[temperature/temperature]
+label= 
+interval=15
+
+# Battery
+[battery]
+command=~/.dotfiles/i3wm/i3blocks-contrib/battery/battery
+markup=pango
+interval=1
+label= 
+
+[mediaplayer]
+command=~/.dotfiles/i3wm/i3blocks-contrib/mediaplayer/mediaplayer
+instance=vlc
+interval=5
+signal=10
 
 # Volume indicator
 [volume]
-label=
+label= 
 command=~/.dotfiles/i3wm/i3blocks-contrib/volume/volume
 instance=Master
 interval=once
 signal=12
 
-# Memory usage
-[memory]
-label=
-interval=10
-
-# CPU usage
-[cpu_usage]
-label=
-interval=10
-
-# Temperature
-[temperature]
-label=
-interval=60
-
-# Battery
-[battery2]
-command=~/.dotfiles/i3wm/i3blocks-contrib/battery2/battery2
-markup=pango
-interval=1
 
 # Date Time
 [time]
-label=
+label= 
 command=date '+%Y-%m-%d %H:%M'
 interval=60
