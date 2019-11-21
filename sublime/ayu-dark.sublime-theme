@@ -1,0 +1,38 @@
+[
+  {
+    "class": "sidebar_label",
+    "font.face": "PragmataPro Mono Liga",
+    "font.size": 20,
+    "color": [201,201,201]
+  },
+  {
+    "class": "sidebar_heading",
+    "font.face": "PragmataPro Mono Liga",
+    "font.size": 25
+  },
+  {
+    "class": "tab_label",
+    "font.face": "PragmataPro Mono Liga",
+    "font.size": 22,
+    "color": [201,201,201]
+  },
+  {
+    "class": "label_control",
+    "font.face": "PragmataPro Mono Liga"
+  },
+  {
+    "class": "quick_panel_label",
+    "font.face": "PragmataPro Mono Liga"
+  },
+  {
+    "class": "quick_panel_path_label",
+    "font.face": "PragmataPro Mono Liga"
+  },
+  {
+    "class": "label_control",
+    "parents": [{"class": "status_bar"}],
+    "color": [201,201,201],
+    "font.size": 18
+  }
+]
+
