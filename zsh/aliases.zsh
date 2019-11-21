@@ -15,7 +15,6 @@ alias subl="subl3"
 alias eprofile="$EDITOR ~/.zshrc"
 alias rprofile="source ~/.zshrc"
 alias g="grep --color=auto"
-alias psgrep="ps -ef | grep -v grep | grep"
 alias k9="kill -9"
 alias phpserve="php -S localhost:8080"
 alias tat="tmux new-session -As"
@@ -28,8 +27,8 @@ wifico() {
 	sudo nmcli device wifi connect $1 password $2
 }
 
-# Dev
-alias a="php artisan"
+# PHP dev
+alias ar="php artisan"
 alias pt="phpunit"
 alias ptf="phpunit --filter"
 
@@ -52,10 +51,16 @@ alias gdff="git diff-tree --no-commit-id --name-only -r "
 alias vg="vagrant"
 alias vgstatus="vagrant global-status --prune"
 alias vghalt="vagrant halt"
-alias vgup="vagrant up --provider=libvirt"
+alias vgup="vagrant up"
 alias vgdst="vagrant destroy -f"
 
 # PostgreSQL
 export PGDATA="/var/lib/postgres/data"
 alias pgctl="su postgres -c 'pg_ctl -D $PGDATA'"
 
+# Screen recording, usage: sr demo.mp4
+alias sr="ffmpeg -y -f pulse -i default -f x11grab -r 25 -s 1920x1080 -i :0.0+0,0 -acodec libmp3lame -vcodec libx264 -preset ultrafast"
+
+# Tv monitor setup
+alias tvon="xrandr --output HDMI2 --auto --scale 2x2  --right-of eDP1"
+alias tvoff="xrandr --output HDMI2 --off"
