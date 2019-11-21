@@ -3,7 +3,8 @@ unbind C-b
 set-option -g prefix C-a
 bind-key C-a send-prefix
 
-set -g default-terminal "screen-256color"
+set -g default-terminal "xterm-256color"
+set-option -sa terminal-overrides ",xterm*:Tc"
 set -s escape-time 10
 set -sg repeat-time 600
 set -s focus-events on
@@ -14,7 +15,7 @@ setw -q -g utf8 on
 
 # Mouse on & history limit
 set -g mouse on
-set -g history-limit 50000
+set -g history-limit 90000
 
 # loud or quiet? quit for sure
 set-option -g visual-activity off
