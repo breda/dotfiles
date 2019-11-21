@@ -1,6 +1,6 @@
 [user]
 	email = bouchaala.reda@gmail.com
-	name = Bouchaala Reda
+	name = Reda Bouchaala
 [include]
         path = ~/.gitconfig.local
 [hub]
@@ -24,3 +24,5 @@
         prompt = false
 [help]
         autocorrect = 1
+[merge]
+	log = 60
