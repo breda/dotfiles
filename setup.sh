@@ -6,6 +6,7 @@ ZSH="$DIR/zsh"
 TMUX="$DIR/tmux"
 GIT="$DIR/git"
 I3="$DIR/i3wm"
+HTOP="$DIR/htop"
 
 # ZSH
 ########
@@ -42,6 +43,13 @@ if [ -f ~/.gitconfig ]; then
 	mv ~/.gitconfig ~/.gitconfig.bak && echo "Found gitconfig in home directory (Backed up)"
 fi
 ln -s $GIT/gitconfig.symlink ~/.gitconfig && echo "Symlinked .gitconfig"
+
+# Htop Rc
+########
+if [ -f ~/.config/htoprc ]; then
+	mv ~/.config/htoprc ~/.config/htoprc.bak && echo "Found htoprc in home directory (Backed up)"
+fi
+ln -s $HTOP/htoprc.symlink ~/.config/htoprc && echo "Symlinked htoprc"
 
 # i3-wm (Disabled for now)
 #########
