@@ -2,39 +2,32 @@
 # Tmux config vars
 #
 
-# Nova theme/bar
-set -g @nova-nerdfonts true
-set -g @nova-nerdfonts-left 
-set -g @nova-nerdfonts-right 
+set -g default-terminal "xterm-256color"
+set-option -sa terminal-overrides ",xterm*:Tc"
+set -s escape-time 10
+set -sg repeat-time 600
+set -s focus-events on
 
-set -g @nova-segment-mode "#{?client_prefix,Ω,}"
-set -g @nova-segment-mode-colors "#50fa7b #282a36"
+# Expect UTF8 
+set -q -g status-utf8 on
+setw -q -g utf8 on
 
-set -g @nova-segment-whoami "#(whoami)@#h"
-set -g @nova-segment-whoami-colors "#50fa7b #282a36"
+# Mouse on & history limit
+set -g mouse on
+set -g history-limit 100000
 
-set -g @nova-pane "#I#{?pane_in_mode,  #{pane_mode},}  #W"
+# loud or quiet? quit for sure
+set-option -g visual-activity off
+set-option -g visual-bell off
+set-option -g visual-silence off
+set-window-option -g monitor-activity off
+set-option -g bell-action none
 
-set -g @cpu_percentage_format "%5.1f%%"
-set -g @nova-segment-cpu "cpu #(~/.dotfiles/tmux/plugins/tmux-cpu/scripts/cpu_percentage.sh)"
-set -g @nova-segment-cpu-colors "#282a36 #f8f8f2"
+# title
+set -g set-titles on
+set -g set-titles-string '#T'
+set -g status-justify centre
 
-set -g @cpu_temp_unit "C"
-set -g @cpu_temp_format "%3.0f"
-set -g @nova-segment-cpu-temp "cpu_temp #(~/.dotfiles/tmux/plugins/tmux-cpu/scripts/cpu_temp.sh)"
-set -g @nova-segment-cpu-temp-colors "#282a36 #f8f8f2"
-
-set -g @ram_percentage_format "%5.1f%%"
-set -g @nova-segment-ram "ram #(~/.dotfiles/tmux/plugins/tmux-cpu/scripts/ram_percentage.sh)"
-set -g @nova-segment-ram-colors "#282a36 #f8f8f2"
-
-set -g @net_speed_interfaces "wlp61s0 enp0s31f6"
-set -g @net_speed_format "↓ %10s - ↑ %10s"
-set -g @nova-segment-net "net #(~/.dotfiles/tmux/plugins/tmux-net-speed/scripts/net_speed.sh)"
-set -g @nova-segment-net-colors "#282a36 #f8f8f2"
-
-set -g @nova-rows 1
-set -g @nova-segments-0-left "mode"
-set -g @nova-segments-0-right "whoami"
-set -g @nova-segments-1-left ""
-set -g @nova-segments-1-right "cpu ram cpu-temp"
+# start window numbering at 1 for easier switching
+set -g base-index 1
+setw -g pane-base-index 1

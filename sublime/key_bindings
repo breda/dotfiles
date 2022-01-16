@@ -1,0 +1,32 @@
+[
+    // General
+    { "keys": ["!", "t", "d"], "command": "toggle_distraction_free" },
+    { "keys": ["!", "t", "f"], "command": "toggle_full_screen" },
+    { "keys": ["!", "t", "s"], "command": "toggle_side_bar" },
+    { "keys": ["!", "t", "t"], "command": "open_terminal_project_folder" },
+
+    // Markdown
+    { "keys": ["!", "m", "p"], "command": "markdown_preview_select", "args": {"target": "browser"}},
+
+    // Files
+    { "keys": ["!", "f", "r"], "command": "side_bar_rename" },
+    { "keys": ["!", "f", "d"], "command": "side_bar_duplicate" },
+    { "keys": ["!", "f", "s"], "command": "reveal_in_side_bar" },
+    { "keys": ["!", "f", "x"], "command": "side_bar_delete" },
+    { "keys": ["!", "f", "v"], "command": "side_bar_move" },
+    { "keys": ["!", "f", "a"], "command": "advanced_new_file_new" },
+
+    // Origami
+    { "keys": ["ctrl+a", "%"], "command": "create_pane", "args": {"direction": "right"}},
+    { "keys": ["ctrl+a", "\""], "command": "create_pane", "args": {"direction": "down"}},
+    { "keys": ["ctrl+a", "x"], "command": "destroy_pane", "args": {"direction": "self"}},
+    { "keys": ["ctrl+a", "z"], "command": "toggle_zoom_pane", "args": {"fraction": 0.9}},
+    { "keys": ["ctrl+a", "z"], "command": "toggle_zoom_pane", "args": {"fraction": 0.9}},
+
+    // PHP
+    { "keys": ["!", "p", "e"], "command": "expand_fqcn"},
+    { "keys": ["!", "p", "u"], "command": "find_use"},
+    { "keys": ["!", "p", "i"], "command": "implement"},
+    { "keys": ["!", "p", "c"], "command": "insert_php_constructor_property"},
+    { "keys": ["!", "p", "n"], "command": "import_namespace"},
+]

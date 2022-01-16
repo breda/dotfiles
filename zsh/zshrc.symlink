@@ -5,20 +5,24 @@ ZSH="$BASE/zsh"
 
 typeset -U config_files
 config_files=($ZSH/*.zsh)
-for cfile in $config_files
+for cfile in ${${config_files:#*/completion.zsh}}
 do
 	source $cfile
 done
 
+# Init autocomplete here
+autoload -U compinit
+compinit
+source $ZSH/completion.zsh
+
+unset config_files
+
 # Load theme (Starship: https://awesomeopensource.com/project/starship/starship)
 eval "$(starship init zsh)"
-export STARSHIP_CONFIG="/home/redb/.dotfiles/zsh/starship.toml"
+export STARSHIP_CONFIG="$HOME/.dotfiles/zsh/starship.toml"
 
-# Load config if exists
+# Load local config if exists
 # This would contain any passwords or sensitive data
 # It goes without saying that this file should be ignored by VCS systems
 LOCAL_FILE="$HOME/.localrc"
-if [ -f $LOCAL_FILE ]; then
-	source $LOCAL_FILE
-fi
-
+[[ -f $LOCAL_FILE ]] && . $LOCAL_FILE

@@ -26,14 +26,14 @@ symbol = "🕛 root "
 disabled = false
 
 [kubernetes]
-disabled = false
+disabled = true
 [kubernetes.context_aliases]
 
 [golang]
 disabled = false
 
 [aws]
-disabled = false
+disabled = true
 
 [gcloud]
 disabled = false
@@ -56,7 +56,7 @@ disabled = false
 disabled = false
 
 [helm]
-disabled = false
+disabled = true
 
 [rust]
 disabled = true

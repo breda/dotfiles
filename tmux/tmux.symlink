@@ -3,30 +3,6 @@ unbind C-b
 set-option -g prefix C-a
 bind-key C-a send-prefix
 
-set -g default-terminal "xterm-256color"
-set-option -sa terminal-overrides ",xterm*:Tc"
-set -s escape-time 10
-set -sg repeat-time 600
-set -s focus-events on
-
-# Expect UTF8 
-set -q -g status-utf8 on
-setw -q -g utf8 on
-
-# Mouse on & history limit
-set -g mouse on
-set -g history-limit 100000
-
-# loud or quiet? quit for sure
-set-option -g visual-activity off
-set-option -g visual-bell off
-set-option -g visual-silence off
-set-window-option -g monitor-activity off
-set-option -g bell-action none
-
-# Theme
-#source-file "$HOME/.dotfiles/tmux/theme.tmuxtheme"
-
 # Plugins
 # Install
 set -g @plugin 'tmux-plugins/tpm'
@@ -35,6 +11,9 @@ set -g @plugin 'tmux-plugins/tmux-sidebar'
 set -g @plugin 'tmux-plugins/tmux-net-speed'
 set -g @plugin 'tmux-plugins/tmux-cpu'
 set -g @plugin 'o0th/tmux-nova'
+set -g @plugin 'wfxr/tmux-fzf-url'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
 
 # Configure
 set-environment -g TMUX_PLUGIN_MANAGER_PATH "$HOME/.dotfiles/tmux/plugins"
@@ -42,4 +21,7 @@ run -b "$HOME/.dotfiles/tmux/plugins/tpm/tpm"
 
 # Config vars
 source-file "$HOME/.dotfiles/tmux/config.tmux"
+
+# Theme config
+source-file "$HOME/.dotfiles/tmux/theme.tmux"
 
