@@ -26,7 +26,6 @@ set-option -g bell-action none
 # title
 set -g set-titles on
 set -g set-titles-string '#T'
-set -g status-justify centre
 
 # start window numbering at 1 for easier switching
 set -g base-index 1
