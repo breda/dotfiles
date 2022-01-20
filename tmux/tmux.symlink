@@ -19,9 +19,8 @@ set -g @plugin 'tmux-plugins/tmux-continuum'
 set-environment -g TMUX_PLUGIN_MANAGER_PATH "$HOME/.dotfiles/tmux/plugins"
 run -b "$HOME/.dotfiles/tmux/plugins/tpm/tpm"
 
-# Config vars
-source-file "$HOME/.dotfiles/tmux/config.tmux"
-
-# Theme config
-source-file "$HOME/.dotfiles/tmux/theme.tmux"
+# Config files
+source-file "$HOME/.dotfiles/tmux/bindings.tmux"        # Bindings
+source-file "$HOME/.dotfiles/tmux/config.tmux"          # General
+source-file "$HOME/.dotfiles/tmux/theme.tmux"           # Theme
 
