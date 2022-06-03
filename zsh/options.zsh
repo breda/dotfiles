@@ -16,10 +16,10 @@ setopt INC_APPEND_HISTORY SHARE_HISTORY                         # adds history i
 setopt HIST_IGNORE_ALL_DUPS                                     # don't record dupes in history
 setopt HIST_REDUCE_BLANKS
 
-ISTFILE=~/.zhistory
-HISTSIZE=
-HISTFILESIZE=
-SAVEHIST=
+HISTFILE=~/.zhistory
+HISTSIZE=10000
+SAVEHIST=10000
+setopt SHARE_HISTORY
 WORDCHARS=${WORDCHARS//\/[&.;]}
 
 # Better history
