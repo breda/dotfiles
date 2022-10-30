@@ -3,38 +3,43 @@
 #
 
 # Nova theme/bar
+### THEME ###
 set -g @nova-nerdfonts true
 set -g @nova-nerdfonts-left 
 set -g @nova-nerdfonts-right 
 
-set -g @nova-segment-mode "#{?client_prefix,Ω,}"
-set -g @nova-segment-mode-colors "#50fa7b #282a36"
+set -g @nova-pane "#I #W"
+set -g @nova-rows 0
+
+### COLORS ###
+b_bg="#303952"
+
+seg_a="#4a69bd #ddc7a1"
+seg_b="$b_bg #ddc7a1"
+
+inactive_bg="#303952"
+inactive_fg="#ddc7a1"
+active_bg=$b_bg
+active_fg="#ddc7a1"
+
+set -gw window-status-current-style bold
+set -g "@nova-status-style-bg" "$inactive_bg"
+set -g "@nova-status-style-fg" "$inactive_fg"
+set -g "@nova-status-style-active-bg" "$active_bg"
+set -g "@nova-status-style-active-fg" "$active_fg"
+
+set -g "@nova-pane-active-border-style" "#44475a"
+set -g "@nova-pane-border-style" "#827d51"
+
+### STATUS BAR ###
+set -g @nova-segment-session "#{session_name}"
+set -g @nova-segment-session-colors "$seg_a"
 
 set -g @nova-segment-whoami "#(whoami)@#h"
-set -g @nova-segment-whoami-colors "#50fa7b #282a36"
+set -g @nova-segment-whoami-colors "$seg_a"
 
-set -g @nova-pane "#I#{?pane_in_mode,  #{pane_mode},}  #W"
+set -g @nova-segment-cpu "cpu#(~/.dotfiles/tmux/plugins/tmux-cpu/scripts/cpu_percentage.sh) mem#(~/.dotfiles/tmux/plugins/tmux-cpu/scripts/ram_percentage.sh)"
+set -g @nova-segment-cpu-colors "$seg_b"
 
-set -g @cpu_percentage_format "%5.1f%%"
-set -g @nova-segment-cpu "cpu #(~/.dotfiles/tmux/plugins/tmux-cpu/scripts/cpu_percentage.sh)"
-set -g @nova-segment-cpu-colors "#282a36 #f8f8f2"
-
-set -g @cpu_temp_unit "C"
-set -g @cpu_temp_format "%3.0f"
-set -g @nova-segment-cpu-temp "cpu_temp #(~/.dotfiles/tmux/plugins/tmux-cpu/scripts/cpu_temp.sh)"
-set -g @nova-segment-cpu-temp-colors "#282a36 #f8f8f2"
-
-set -g @ram_percentage_format "%5.1f%%"
-set -g @nova-segment-ram "ram #(~/.dotfiles/tmux/plugins/tmux-cpu/scripts/ram_percentage.sh)"
-set -g @nova-segment-ram-colors "#282a36 #f8f8f2"
-
-set -g @net_speed_interfaces "wlp61s0 enp0s31f6"
-set -g @net_speed_format "↓ %10s - ↑ %10s"
-set -g @nova-segment-net "net #(~/.dotfiles/tmux/plugins/tmux-net-speed/scripts/net_speed.sh)"
-set -g @nova-segment-net-colors "#282a36 #f8f8f2"
-
-set -g @nova-rows 1
-set -g @nova-segments-0-left "mode"
-set -g @nova-segments-0-right "whoami"
-set -g @nova-segments-1-left ""
-set -g @nova-segments-1-right "cpu ram cpu-temp"
+set -g @nova-segments-0-left "session"
+set -g @nova-segments-0-right "cpu whoami"
