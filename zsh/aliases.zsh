@@ -46,6 +46,9 @@ alias ga="git add"
 alias gaa="git add --all"
 alias gdf="git diff"
 
+# Go
+alias goh="cd $GOPATH/github.com/breda"
+
 # Vagrant
 alias vg="vagrant"
 alias vgstatus="vagrant global-status --prune"
