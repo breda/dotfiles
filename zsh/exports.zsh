@@ -14,4 +14,5 @@ export GOPATH="/home/redb/go"
 
 #### Path
 export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/var/lib/snapd/snap/bin
 
