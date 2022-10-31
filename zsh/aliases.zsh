@@ -59,3 +59,6 @@ alias pgctl="su postgres -c 'pg_ctl -D $PGDATA'"
 
 # Screen recording, usage: sr demo.mp4
 alias sr="ffmpeg -y -f pulse -i default -f x11grab -r 25 -s 1920x1080 -i :0.0+0,0 -acodec libmp3lame -vcodec libx264 -preset ultrafast"
+
+# LXD/LXC
+alias lxcls="lxc list -c n,s,4,m,D,u,a,P"

@@ -1,0 +1,32 @@
+config:
+  boot.autostart: "true"
+  cloud-init.network-config: |
+    version: 2
+    ethernets:
+      eth0:
+        dhcp4: true
+      eth1:
+        dhcp4: true
+  cloud-init.user-data: |
+    user:
+      - name: redb
+        primary_group: redb
+        ssh_authorized_keys:
+          - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDHg07cF589A0Iq+HvioPLE/b+g4kqve/asoO8+WTaYB7I/0WtidLLmNNX1bt4vZpwQFju4M28UqmxQ9FCEVp0iNjIcvatitJH5dh/Byl8ZGWDEkx6F7LgndJN9CIqWOar4mEYA6Spn/41e+92ThpQC3xol5V3nBaMY7sgLRyPQffjwGunmTXyZ2sm7Xy5YuKw76CbG7uxQmvZPuPUd1ivWJyAp/i8E/EqtxZ380rH7JsdlZidZajmmsrEFbfAl5c/26xp9G3IliI/t2WBuiNHERklOdB2BU2WBpo/mLcnibSAmeuRXoaIkJj0RlQ8xMMZv0wzVqJo9u7WxIElA85H+Codmc8kMsDQVwry+GOk0Y2ffj6vkJeUmhGeotEV+h9TtAyLXppExh2Lood280oBagWCa3+NxaQyAIK4phpv1dG7dw2Lksk+gYuSvJIrQlH5bb6XjnZc/TBfNbLwde465mTgK7V+bOg3ZgAz0DHyBXh0NBVcZnkZr/j/ym4RJUH6H/lnF0VGt69cVGBNz/aw14yONbFOhXM2BGc30bLT/eppUFePwaf3XCixt+1d4cCVJ25DjsXJL11KmrPQkXPwAfMG3kZ7yPM/QHvpKcgxQ+EzC0+/oxgnsMg3j1VRFd2ORF38AqXzGCN04QtK+M92Z1B0pfEA8n2HoqUb4a0Sv9w== redb@bp-lxd
+description: Homelab LXD Profile
+devices:
+  eth0:
+    nictype: bridged
+    parent: br0
+    type: nic
+  eth1:
+    name: eth1
+    network: lxdbr0
+    type: nic
+  root:
+    path: /
+    pool: default
+    type: disk
+name: homelab
+used_by:
+- /1.0/instances/test
