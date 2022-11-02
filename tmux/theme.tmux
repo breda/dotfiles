@@ -27,7 +27,7 @@ set -g @nova-segment-session-colors "#4a69bd #ddc7a1"
 set -g @nova-segment-whoami "#(whoami)@#h"
 set -g @nova-segment-whoami-colors "#4a69bd #ddc7a1"
 
-set -g @nova-segment-cpu "cpu #(~/.dotfiles/tmux/plugins/tmux-cpu/scripts/cpu_percentage.sh) mem #(~/.dotfiles/tmux/plugins/tmux-cpu/scripts/ram_percentage.sh)"
+set -g @nova-segment-cpu "cpu #(~/.dotfiles/tmux/plugins/tmux-cpu/scripts/cpu_percentage.sh) temp #(~/.dotfiles/tmux/plugins/tmux-cpu/scripts/cpu_temp.sh) mem #(~/.dotfiles/tmux/plugins/tmux-cpu/scripts/ram_percentage.sh)"
 set -g @nova-segment-cpu-colors "#303952 #ddc7a1"
 
 set -g @nova-segments-0-left "session"
