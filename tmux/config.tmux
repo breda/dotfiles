@@ -25,8 +25,11 @@ set-option -g bell-action none
 
 # title
 set -g set-titles on
-set -g set-titles-string '#T'
+set -g set-titles-string "#I:#W"
 
 # start window numbering at 1 for easier switching
 set -g base-index 1
 setw -g pane-base-index 1
+
+# means that closing window #2 will renumber window #3 to #2 and opening a new window will place it at #3.
+set -g renumber-windows on
