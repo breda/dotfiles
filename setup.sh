@@ -54,27 +54,25 @@ ln -s $HTOP/htoprc.symlink ~/.config/htoprc && echo "Symlinked htoprc"
 # i3-wm (Disabled for now)
 #########
 # main i3 config
-# [ -d ~/.i3 ] || mkdir ~/.i3
-# if [ -f ~/.i3/config ]; then
-# 	mv ~/.i3/config ~/.i3/config.bak &&
-# 	echo "Found i3 config file in home directory (Backed up)"
-# fi
-# ln -s "$I3/i3wm.symlink" ~/.i3/config && echo "Symlinked i3 config file"
+[ -d ~/.i3 ] || mkdir ~/.i3
+if [ -f ~/.i3/config ]; then
+	mv ~/.i3/config ~/.i3/config.bak &&
+	echo "Found i3 config file in home directory (Backed up)"
+fi
+ln -s "$I3/i3wm.symlink" ~/.i3/config && echo "Symlinked i3 config file"
 
-# # i3-blocks
-# if [ -d "$I3/i3blocks-contrib" ]; then
-# 	cd "$I3/i3blocks-contrib" && git pull --quiet
-# 	echo "Updated i3blocks contrib repo"
-# else
-# 	git clone --quiet https://github.com/breda/i3blocks-contrib "$I3/i3blocks-contrib"
-# 	echo "Installed i3blocks contrib repo"
-# fi
+# i3-blocks
+if [ -d "$I3/i3blocks-contrib" ]; then
+	cd "$I3/i3blocks-contrib" && git pull --quiet
+	echo "Updated i3blocks contrib repo"
+else
+	git clone --quiet https://github.com/vivien/i3blocks-contrib "$I3/i3blocks-contrib"
+	echo "Installed i3blocks contrib repo"
+fi
 
-# if [ -f ~/.i3blocks.conf ]; then
-# 	mv ~/.i3blocks.conf ~/.i3blocks.conf.bak &&
-# 	echo "Found i3blocks config file in home directory (Backed up)"
-# fi
-# ln -s "$I3/i3blocks.symlink" ~/.i3blocks.conf && echo "Symlinked i3blocks config"
-
-
+if [ -f ~/.i3blocks.conf ]; then
+	mv ~/.i3blocks.conf ~/.i3blocks.conf.bak &&
+	echo "Found i3blocks config file in home directory (Backed up)"
+fi
+ln -s "$I3/i3blocks.symlink" ~/.i3blocks.conf && echo "Symlinked i3blocks config"
 
