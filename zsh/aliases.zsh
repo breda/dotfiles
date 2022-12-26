@@ -45,6 +45,10 @@ alias gs="git status"
 alias ga="git add"
 alias gaa="git add --all"
 alias gdf="git diff"
+gpushn() {
+	git push --set-upstream origin `git branch --show-current`
+}
+
 
 # Go
 alias goh="cd $GOPATH/github.com/breda"
@@ -61,4 +65,5 @@ alias pgctl="su postgres -c 'pg_ctl -D $PGDATA'"
 alias sr="ffmpeg -y -f pulse -i default -f x11grab -r 25 -s 1920x1080 -i :0.0+0,0 -acodec libmp3lame -vcodec libx264 -preset ultrafast"
 
 # LXD/LXC
-alias lxcls="lxc list -c n,s,image.os,image.version,4,m,D,u,a,P"
+alias lxcll="lxc list -c n,s,image.os,image.version,4,m,D,u,a,P"
+alias lxcl="lxc list -c n,s,4"
