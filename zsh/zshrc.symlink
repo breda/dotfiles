@@ -21,6 +21,9 @@ unset config_files
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG="$HOME/.dotfiles/zsh/starship.toml"
 
+# Init zoxide
+eval "$(zoxide init zsh)"
+
 # Load local config if exists
 # This would contain any passwords or sensitive data
 # It goes without saying that this file should be ignored by VCS systems

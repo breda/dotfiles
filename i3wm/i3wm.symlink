@@ -1,20 +1,22 @@
+# i3 config file (v4)
+
 ###################################################
 ################ Variables ########################
 ###################################################
 
 set $lock "betterlockscreen --lock"
 set $lockAndSuspend "betterlockscreen --suspend"
-set $terminal "tilix --maximize"
-set $browser "chromium"
+set $terminal "tilix"
+set $browser "google-chrome-stable"
 set $browser2 "firefix-developer-edition"
 set $fileManager "pcmanfm -n"
 set $screenshot "i3-scrot"
 set $launcher "rofi -show run"
 
-set $windowsFont ""
+set $windowsFont "pango:DejaVu Sans Mono 12"
 
 set $bg-color 	         	#1d1f21
-set $border-color 	 		#0988db
+set $border-color 	 	#0988db
 set $border-color-inactive 	#13496e
 set $inactive-bg-color   	#2d2d2d
 set $text-color          	#f3f4f5
@@ -28,35 +30,36 @@ set $bar-bg 				#1d1f21
 
 # Mod
 set $mod Mod4
-font pango:Lato Bold 12
+font pango:DejaVu Sans Mono 10
 floating_modifier $mod
 
-set $ws0 ""
-set $ws1 ""
-set $ws2 ""
-set $ws3 ""
-set $ws4 ""
-set $ws5 ""
-set $ws6 ""
-set $ws7 ""
-set $ws8 ""
-set $ws9 ""
-set $wsHDMI ""
+set $ws0 "0"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $wsRight "R"
 
-workspace $wsHDMI output HDMI2
+workspace $wsRight output DisplayPort-1
 hide_edge_borders smart
-gaps inner 4
-gaps outer 4
+#gaps inner 4
+#gaps outer 4
 default_border pixel 1
 
 ###################################################
 ############### Startup Apps ######################
 ###################################################
 
-exec_always --no-startup-id feh --randomize --bg-scale /home/redb/Pictures/wallpapers/*
+exec_always --no-startup-id feh --randomize --bg-scale /home/breda/Pictures/wallpapers/*
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id nm-applet
+exec --no-startup-id pa-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id blueman-applet
 exec_always --no-startup-id ff-theme-util
@@ -66,26 +69,27 @@ exec_always --no-startup-id dunst
 exec --no-startup-id redshift -m vidmode -l 36.7060094:3.1931789
 
 ###################################################
+############### Startup Scripts ###################
+###################################################
+
+# Rotate rigfht monitor to correct position
+exec_always --no-startup-id xrandr --output DisplayPort-2 --rotate right
+
+###################################################
 ############### Bindings ##########################
 ###################################################
 
 bindsym $mod+b exec $browser
-bindsym $mod+Shift+b exec $browser2
+bindsym $mod+Shift+b exec $browser3
 bindsym F12 exec i3
 bindsym Home exec $fileManager
+bindsym $mod+a exec $launcher
 bindsym $mod+Return exec $terminal
 bindsym $mod+Mod1+l exec $lock
-bindsym Print exec --no-startup-id $screenshot
 bindsym $mod+Mod1+B border toggle
 bindsym $mod+Control+b bar mode toggle mainbar
-
-bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer set Master 5%+ && pkill -RTMIN+12 i3blocks"
-bindsym XF86AudioLowerVolume exec --no-startup-id "amixer set Master 5%- && pkill -RTMIN+12 i3blocks"
-bindsym XF86AudioMute exec --no-startup-id "amixer -D pulse sset Master toggle && pkill -RTMIN+12 i3blocks"
-bindsym XF86AudioMicMute exec --no-startup-id "amixer -D pulse Capture toggle && pkill -RTMIN+12 i3blocks"
-
-bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight -inc 5"
-bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 5"
+bindsym $mod+Ctrl+Right move workspace to output right
+bindsym $mod+Ctrl+Left move workspace to output left
 
 bindsym $mod+Shift+q kill
 bindsym $mod+j focus left
@@ -128,7 +132,7 @@ bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
-bindsym $mod+p workspace $wsHDMI
+bindsym $mod+p workspace $wsRight
 
 bindsym $mod+Shift+0 move container to workspace $ws0
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -143,7 +147,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 bindsym $mod+r mode "resize"
 mode "resize" {
@@ -169,10 +173,17 @@ mode "resize" {
 
 # window colors
 #                       border              background         text                 indicator			# child border
-client.focused          $bg-color       	$bg-color          $text-color          $border-color 		$border-color
-client.unfocused        $bg-color  	    	$bg-color 	       $inactive-text-color $border-color		$border-color-inactive
-client.focused_inactive $bg-color  	    	$bg-color 	       $inactive-text-color $border-color		$border-color-inactive
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $border-color		$border-color
+#client.focused          $bg-color       	$bg-color          $text-color          $border-color 		$border-color
+#client.unfocused        $bg-color  	    	$bg-color 	       $inactive-text-color $border-color		$border-color-inactive
+#client.focused_inactive $bg-color  	    	$bg-color 	       $inactive-text-color $border-color		$border-color-inactive
+#client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $border-color		$border-color
+#
+# class                 border  bground text    indicator child_border
+client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 
 
 # Floating: Open specific applications in floating mode
@@ -209,13 +220,14 @@ for_window [title="Bluetooth Devices"] floating enable
 ############### Bar ###############################
 ###################################################
 bar {
-	status_command i3blocks
+	i3bar_command i3bar 
+	status_command /usr/bin/i3status-rs $HOME/.dotfiles/config/i3status-rs/config.toml
 	id mainbar
-	output eDP1
+	output DisplayPort-2
 	position top
-	font pango:fontawesome 10
-	separator_symbol "    "
-	height 28
+	font pango:DejaVu Sans Mono 11
+	separator_symbol "  ⁞ "
+	height 25
 
 	colors {
 		background $bar-bg

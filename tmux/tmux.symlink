@@ -1,18 +1,18 @@
-# My prefix is Ctrl+a
-unbind C-b
-set-option -g prefix C-a
-bind-key C-a send-prefix
 
 # Plugins
 # Install
 set -g @plugin 'tmux-plugins/tpm'
-set -g @plugin 'tmux-plugins/tmux-resurrect'
-set -g @plugin 'tmux-plugins/tmux-sidebar'
-set -g @plugin 'tmux-plugins/tmux-cpu'
+
 set -g @plugin 'o0th/tmux-nova'
 set -g @plugin 'wfxr/tmux-fzf-url'
+
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
+set -g @plugin '27medkamal/tmux-session-wizard'
+set -g @plugin 'tmux-plugins/tmux-sidebar'
+
+set -g @plugin 'olimorris/tmux-pomodoro-plus'
+set -g @plugin 'yardnsm/tmux-1password'
 
 # Configure
 set-environment -g TMUX_PLUGIN_MANAGER_PATH "$HOME/.dotfiles/tmux/plugins"
@@ -22,4 +22,5 @@ run -b "$HOME/.dotfiles/tmux/plugins/tpm/tpm"
 source-file "$HOME/.dotfiles/tmux/bindings.tmux"        # Bindings
 source-file "$HOME/.dotfiles/tmux/config.tmux"          # General
 source-file "$HOME/.dotfiles/tmux/theme.tmux"           # Theme
+source-file "$HOME/.dotfiles/tmux/plugins.tmux"           # Plugin config
 

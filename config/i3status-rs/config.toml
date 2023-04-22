@@ -1,0 +1,40 @@
+[icons]
+icons = "awesome6"
+
+# Blocks
+[[block]]
+block = "temperature"
+format = "$icon $average"
+interval = 5
+chip = "*-isa-*"
+
+[[block]]
+block = "memory"
+format = "mem $mem_used_percents.eng(w:2)"
+interval = 5
+
+[[block]]
+block = "cpu"
+format = "cpu $utilization"
+interval = 2
+
+[[block]]
+block = "amd_gpu"
+format = "gpu $utilization"
+interval = 2
+
+[[block]]
+block = "net"
+format = "{wifi $signal_strength $ssid $frequency|eth}"
+missing_format = "no net"
+interval = 15
+
+[[block]]
+block = "time"
+interval = 5
+timezone = "Africa/Algiers"
+[block.format]
+full = "$timestamp.datetime(f:'%Y-%m-%d %R', l:en_GB) "
+short = "$timestamp.datetime(f:%R) "
+
+

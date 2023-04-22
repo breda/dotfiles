@@ -1,0 +1,46 @@
+###############################################################################
+# i3 status config
+###############################################################################
+
+general {
+  output_format = "i3bar"
+  colors = true
+  color_good = "#ffffff"
+  color_degraded = "#F1FA8C"
+  color_bad = "#FF5555"
+}
+
+order += "memory" 
+order += "cpu_usage" 
+order += "ethernet enp6s0"
+order += "wireless wlp5s0"
+order += "tztime local_time"
+order += "tztime date"
+
+wireless wlp5s0 {
+    format_up = "wifi %ip (%quality)"
+    format_down = ""
+}
+
+memory {
+    format = "mem %percentage_used"
+}
+
+ethernet enp6s0 {
+    #if you use %speed, i3status requires root privileges
+    format_up = "eth %ip"
+    format_down = "eth down"
+}
+
+tztime date {
+    format = "%A %e %B"
+}
+
+tztime local_time {
+    format = "DZ %H:%M"
+    timezone = "Africa/Algiers"
+}
+
+cpu_usage {
+    format = "cpu %usage"
+}

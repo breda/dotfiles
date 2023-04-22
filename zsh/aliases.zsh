@@ -3,11 +3,13 @@
 ############
 
 # General
+alias cd="z"
+alias c="z"
 alias cp="cp -i"
 alias df='df --sync -h'
 alias free='free -wh --mega'
-alias v="vim"
-alias vi="vim"
+alias v="nvim"
+alias vi="nvim"
 alias cls="clear"
 
 alias ll="ls --color -lhF --group-directories-first"
@@ -45,13 +47,15 @@ alias gs="git status"
 alias ga="git add"
 alias gaa="git add --all"
 alias gdf="git diff"
+
+# Push new branch
 gpushn() {
 	git push --set-upstream origin `git branch --show-current`
 }
 
 
 # Go
-alias goh="cd $GOPATH/github.com/breda"
+alias goh="z $GOPATH/github.com/breda"
 
 # Vagrant
 alias vg="vagrant"

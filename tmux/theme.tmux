@@ -4,31 +4,33 @@
 
 # Nova theme/bar
 ### THEME ###
-set -g @nova-nerdfonts true
-set -g @nova-nerdfonts-left 
-set -g @nova-nerdfonts-right 
+#
 
-set -g @nova-pane "#I #W"
+set -g status-left-length 85
+set -g status-right-length 85
+
+set -g @nova-pane "#W"
 set -g @nova-rows 0
+set -g @nova-nerdfonts false
 
 set -gw window-status-current-style bold
-set -g "@nova-status-style-bg" "#303952"
+set -g "@nova-status-style-bg" "default"
 set -g "@nova-status-style-fg" "#ddc7a1"
-set -g "@nova-status-style-active-bg" "#4a69bd"
+set -g "@nova-status-style-active-bg" "#434343"
 set -g "@nova-status-style-active-fg" "#ddc7a1"
 
-set -g "@nova-pane-active-border-style" "#44475a"
-set -g "@nova-pane-border-style" "#827d51"
 
 ### STATUS BAR ###
-set -g @nova-segment-session "#{session_name}"
-set -g @nova-segment-session-colors "#4a69bd #ddc7a1"
+set -g @nova-pane-justify "left"
 
 set -g @nova-segment-whoami "#(whoami)@#h"
-set -g @nova-segment-whoami-colors "#4a69bd #ddc7a1"
+set -g @nova-segment-whoami-colors "default #92baff"
 
-set -g @nova-segment-cpu "cpu #(~/.dotfiles/tmux/plugins/tmux-cpu/scripts/cpu_percentage.sh) temp #(~/.dotfiles/tmux/plugins/tmux-cpu/scripts/cpu_temp.sh) mem #(~/.dotfiles/tmux/plugins/tmux-cpu/scripts/ram_percentage.sh)"
-set -g @nova-segment-cpu-colors "#303952 #ddc7a1"
+set -g @nova-segment-session "working on #S     "
+set -g @nova-segment-session-colors "default #9c9a9a"
+
+set -g @nova-segment-pomodoro " #{pomodoro_status}"
+set -g @nova-segment-pomodoro-colors "default #f39c12"
 
 set -g @nova-segments-0-left "session"
-set -g @nova-segments-0-right "cpu whoami"
+set -g @nova-segments-0-right "pomodoro whoami"
