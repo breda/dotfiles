@@ -10,6 +10,7 @@ set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @plugin '27medkamal/tmux-session-wizard'
 set -g @plugin 'tmux-plugins/tmux-sidebar'
+set -g @plugin 'christoomey/vim-tmux-navigator'
 
 set -g @plugin 'olimorris/tmux-pomodoro-plus'
 set -g @plugin 'yardnsm/tmux-1password'

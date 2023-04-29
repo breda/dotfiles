@@ -7,10 +7,7 @@ export EDITOR=vim
 export TERMINAL="tilix"
 
 # Go
-export GOPATH="/home/redb/go"
-
-
-
+export GOPATH="$HOME/go"
 
 #### Path
 export PATH=$PATH:$GOPATH/bin

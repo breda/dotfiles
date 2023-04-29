@@ -16,6 +16,11 @@ alias ll="ls --color -lhF --group-directories-first"
 alias l="ls --color -lhaF --group-directories-first"
 alias lf="ls --color -lhaF | grep -v /"
 
+# Tmux
+alias tn="tmux new -s "
+alias tl="tmux list-sessions"
+alias ta="tmux attach -t "
+
 # System
 alias reload!="source $HOME/.zshrc"
 alias stl="sudo systemctl"
@@ -71,3 +76,4 @@ alias sr="ffmpeg -y -f pulse -i default -f x11grab -r 25 -s 1920x1080 -i :0.0+0,
 # LXD/LXC
 alias lxcll="lxc list -c n,s,image.os,image.version,4,m,D,u,a,P"
 alias lxcl="lxc list -c n,s,4"
+

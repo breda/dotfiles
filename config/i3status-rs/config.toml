@@ -34,7 +34,7 @@ block = "time"
 interval = 5
 timezone = "Africa/Algiers"
 [block.format]
-full = "$timestamp.datetime(f:'%Y-%m-%d %R', l:en_GB) "
+full = "$timestamp.datetime(f:'%a %d %B %H:%M', l:en_GB) "
 short = "$timestamp.datetime(f:%R) "
 
 

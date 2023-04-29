@@ -9,6 +9,9 @@ set -g @new_browser_window 'google-chrome-stable --new-window'
 set -g @session-wizard 's'
 set -g @session-wizard-width 40
 
+# Resurect
+set -g @resurrect-strategy-nvim 'session'
+
 # fzf-url
 set -g @fzf-url-bind 'M'
 
