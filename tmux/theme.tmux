@@ -30,7 +30,7 @@ set -g @nova-pane-justify "left"
 set -g @nova-segment-whoami "#(whoami)@#h"
 set -g @nova-segment-whoami-colors "default #92baff"
 
-set -g @nova-segment-session "working on #S     "
+set -g @nova-segment-session "working on #S     | "
 set -g @nova-segment-session-colors "default #92baff"
 
 set -g @nova-segment-pomodoro " #{pomodoro_status}"
