@@ -9,20 +9,12 @@ for cfile in ${${config_files:#*/completion.zsh}}
 do
 	source $cfile
 done
+unset config_files
 
 # Init autocomplete here
 autoload -U compinit
 compinit
 source $ZSH/completion.zsh
-
-unset config_files
-
-# Load theme (Starship: https://awesomeopensource.com/project/starship/starship)
-eval "$(starship init zsh)"
-export STARSHIP_CONFIG="$HOME/.dotfiles/zsh/starship.toml"
-
-# Init zoxide
-eval "$(zoxide init zsh)"
 
 # Load local config if exists
 # This would contain any passwords or sensitive data

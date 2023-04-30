@@ -3,7 +3,7 @@
 #
 
 # stuff
-export EDITOR=vim
+export EDITOR=nvim
 export TERMINAL="tilix"
 
 # Go
