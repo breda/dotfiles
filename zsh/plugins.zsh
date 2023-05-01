@@ -1,7 +1,3 @@
-# Load theme (Starship: https://awesomeopensource.com/project/starship/starship)
-export STARSHIP_CONFIG="$HOME/.dotfiles/zsh/starship.toml"
-eval "$(starship init zsh)"
-
 # Init zoxide
 eval "$(zoxide init zsh)"
 
@@ -17,5 +13,12 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 
+# PHPEnv
+export PATH="$HOME/.phpenv/bin:$PATH"
+eval "$(phpenv init -)"
+
 # ZSH ask (OpenAPI client)
 source $HOME/.dotfiles/zsh/plugins/zsh-ask/zsh-ask.zsh
+
+# Command prompt theme: https://github.com/akz92/clean
+source $HOME/.dotfiles/zsh/plugins/zsh-theme-clean/clean.zsh-theme
