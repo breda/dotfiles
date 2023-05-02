@@ -1,0 +1,15 @@
+# Indexer
+indexer.follow_symlinks: true
+indexer.poll_time: 2000 # 2seconds
+
+# PHP
+php.version: "8.2"
+
+# Composer
+composer.enable: true
+
+# PHPUnit
+phpunit.enabled: true
+
+# Symfony
+symfony.enabled: true
