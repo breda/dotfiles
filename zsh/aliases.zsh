@@ -8,8 +8,10 @@ alias c="z"
 alias cp="cp -i"
 alias df='df --sync -h'
 alias free='free -wh --mega'
+alias vim="nvim"
 alias v="nvim"
 alias vi="nvim"
+alias n="nvim"
 alias cls="clear"
 
 alias ll="ls --color -lhF --group-directories-first"
@@ -58,9 +60,11 @@ gpushn() {
 	git push --set-upstream origin `git branch --show-current`
 }
 
-
 # Go
 alias goh="z $GOPATH/github.com/breda"
+
+# Ansible
+alias apl="ansible-playbook --extra-vars='ansible_ssh_private_key_file=$ANSIBLE_PRIVATE_KEY'"
 
 # Vagrant
 alias vg="vagrant"
@@ -77,3 +81,11 @@ alias sr="ffmpeg -y -f pulse -i default -f x11grab -r 25 -s 1920x1080 -i :0.0+0,
 alias lxcll="lxc list -c n,s,image.os,image.version,4,m,D,u,a,P"
 alias lxcl="lxc list -c n,s,4"
 
+# Crypto
+# Generate random bytes in hex/base64: randhex OUTPUT NUM_BYTES
+function randb() {
+	local output="${1:-base64}"
+	local bytes="${2:-16}"
+
+	openssl rand -$output $bytes | tr -d "/+="
+}
