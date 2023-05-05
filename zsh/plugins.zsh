@@ -26,3 +26,4 @@ source $HOME/.dotfiles/zsh/plugins/zsh-theme-clean/clean.zsh-theme
 # SSH quick connect plugin: https://github.com/breda/zsh-ssh-quickconnect
 source $HOME/.dotfiles/zsh/plugins/zsh-ssh-quickconnect/ssh-quickconnect.plugin.sh
 
+# Tmux switch plugin

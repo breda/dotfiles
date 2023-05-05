@@ -22,7 +22,7 @@ set -g renumber-windows on
 
 # Mouse on & history limit
 set -g mouse on
-set -g history-limit 100000
+set -g history-limit 5000
 
 # loud or quiet? quit for sure
 set-option -g visual-activity off
@@ -31,3 +31,5 @@ set-option -g visual-silence off
 set-window-option -g monitor-activity off
 set-option -g bell-action none
 
+# don't exit from tmux when closing a session
+set -g detach-on-destroy off
