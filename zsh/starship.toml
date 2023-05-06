@@ -1,0 +1,59 @@
+add_newline = false
+
+format = """\
+  $directory\
+  $sudo\
+  $line_break\
+  $character\
+  """
+
+right_format = """$git_metrics\
+  $git_branch\
+  $git_status\
+  $git_commit\
+  $git_state\
+  """
+
+[character]
+success_symbol = '[](bold blue)'
+error_symbol = '[](bold red)'
+vimcmd_symbol = '[v](bold green) '
+vimcmd_replace_one_symbol = '[v](bold purple) '
+vimcmd_replace_symbol = '[v](bold purple) '
+vimcmd_visual_symbol = '[v](bold red) '
+
+[directory]
+truncation_length = 4
+truncate_to_repo = false
+truncation_symbol = ".../"
+read_only = " [ro]"
+style = "bold blue"
+read_only_style = "bold red"
+
+[sudo]
+disabled = false
+symbol = "sudo"
+style = "bold dimmed red"
+
+[git_branch]
+format = '[$symbol$branch(:$remote_branch)]($style) '
+style =	'bold dimmed blue'
+
+[git_metrics]
+added_style = "dimmed green"
+deleted_style = "dimmed red"
+disabled = false
+
+[git_status]
+style = "bold red"
+up_to_date = ''
+untracked = 'u'
+conflicted = 'c'
+ahead = '(a ${count})'
+behind = '(b ${count})'
+stashed = 's'
+modified = 'm'
+staged = 'g'
+renamed = 'r'
+deleted = 'd'
+diverged = "D"
