@@ -93,3 +93,7 @@ function randb() {
 
 	openssl rand -$output $bytes | tr -d "/+=\n"
 }
+
+# Display control
+alias rightDark="xrandr --output $RIGHT_DISPLAY --brightness 0.55"
+alias rightLight="xrandr --output $RIGHT_DISPLAY --brightness 1"

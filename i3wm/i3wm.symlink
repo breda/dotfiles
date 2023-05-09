@@ -72,8 +72,11 @@ exec --no-startup-id redshift -m vidmode -l 36.7060094:3.1931789
 ############### Startup Scripts ###################
 ###################################################
 
+# Ensure the main monitor is running at 144hz
+exec_always --no-startup-id xrandr --output DisplayPort-0 --mode 3440x1440 --rate 144.00
+
 # Rotate rigfht monitor to correct position
-exec_always --no-startup-id xrandr --output DisplayPort-2 --rotate right
+exec_always --no-startup-id xrandr --output DisplayPort-1 --rotate right
 
 ###################################################
 ############### Bindings ##########################
@@ -212,7 +215,6 @@ for_window [class="(?i)System-config-printer.py"] floating enable border normal
 for_window [class="Skype"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
-for_window [class="Xfburn"] floating enable
 for_window [title="Bluetooth Devices"] floating enable
 
 # Slack always opens on the right workspace which is the right monitor
@@ -225,18 +227,8 @@ bar {
 	i3bar_command i3bar 
 	status_command /usr/bin/i3status-rs $HOME/.dotfiles/config/i3status-rs/config.toml
 	id mainbar
-	output DisplayPort-2
+	output DisplayPort-1
 	position top
 	font pango:DejaVu Sans Mono 11
-	separator_symbol "  ⁞ "
 	height 25
-
-	colors {
-		background $bar-bg
-		
-		#                  border             background         text
-		focused_workspace  $border-color      $bar-bg      	     $text-color
-		inactive_workspace $bar-bg 	      	  $bar-bg 		     $inactive-text-color
-		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-	}
 }
