@@ -6,7 +6,7 @@
 
 set $lock "betterlockscreen --lock"
 set $lockAndSuspend "betterlockscreen --suspend"
-set $terminal "tilix"
+set $terminal "kitty"
 set $browser "google-chrome-stable"
 set $browser2 "firefix-developer-edition"
 set $fileManager "pcmanfm -n"
@@ -224,10 +224,10 @@ assign [class="Slack"] $wsRight
 ############### Bar ###############################
 ###################################################
 bar {
-	i3bar_command i3bar 
+	i3bar_command i3bar
 	status_command /usr/bin/i3status-rs $HOME/.dotfiles/config/i3status-rs/config.toml
 	id mainbar
-	output DisplayPort-1
+	output DisplayPort-2
 	position top
 	font pango:DejaVu Sans Mono 11
 	height 25
