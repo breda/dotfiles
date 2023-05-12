@@ -229,6 +229,10 @@ bar {
 	id mainbar
 	output DisplayPort-1
 	position top
-	font pango:DejaVu Sans Mono 11
+	font pango:DejaVu Sans Mono 10
 	height 25
+
+	colors {
+		background #0f111a
+	}
 }
