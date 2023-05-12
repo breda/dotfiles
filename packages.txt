@@ -1,0 +1,63 @@
+# zsh & related
+zoxide
+starship
+zsh
+zsh-completions
+zsh-history-substring-search
+zsh-syntax-highlighting
+
+# fonts
+awesome-terminal-fonts
+noto-fonts
+terminus-font
+ttf-firacode-nerd
+ttf-dejavu-nerd
+ttf-font-awesome
+
+# Terminal stuff
+tmux
+kitty
+
+# i3 related
+i3status-rust
+dunst
+
+# General
+git
+htop
+gtop
+lm_sensors
+fzf
+jq
+tor
+xcolor
+xorg-xrandr
+
+
+# Tools
+virtualbox
+vlc
+vagrant
+glow
+nmap
+obsidian
+pcmanfm
+transmission-cli
+transmission-qt
+
+
+# Languages
+php
+php-apcu
+php-fpm
+php-pgsql
+php-redis
+php-sodium
+php-xsl
+composer
+
+go
+gopls
+
+lua
+

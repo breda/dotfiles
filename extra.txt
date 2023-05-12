@@ -1,0 +1,7 @@
+# These packages are not official packages, rather ones that should be installed by yay
+# Browser
+google-chrome-stable
+
+# phpactor LSP for nvim
+phpactor
+

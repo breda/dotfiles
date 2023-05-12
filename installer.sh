@@ -9,9 +9,12 @@
 # This keeps things clean and tidy.
 #
 
+INSTALLER_FILENAME="install.sh"
+DEPS_FILENAME="packages.txt"
+
 # Setup configuration files for all programs/utils
 function setup() {
-	local installers=$(find . -mindepth 2 -name install.sh)
+	local installers=$(find . -mindepth 2 -name $INSTALLER_FILENAME)
 
 	for installer in $installers; do
 		echo "Executing installer: $installer"
@@ -23,7 +26,10 @@ function setup() {
 
 # Install system dependencies
 function deps() {
-	local deps=$(cat ./dependencies.txt | grep -v -E "^#" | tr "\n" " ")
+	local deps=$(cat $DEPS_FILENAME | grep -v -E "^#" | tr "\n" " ")
+	echo "#####################################################"
+	echo "########### Installing Official Packages ############"
+	echo "#####################################################"
 	/bin/sudo pacman -S --noconfirm $deps
 }
 
