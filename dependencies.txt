@@ -1,0 +1,36 @@
+# zsh
+zsh
+
+# Startship is the command prompt that zsh uses
+starship
+
+# Tmux, of course
+tmux
+
+# Kitty, terminal emulator
+kitty
+
+# i3status-rs
+i3status-rust
+
+# General
+git
+htop
+gtop
+lm_sensors
+
+# Tools
+virtualbox
+vagrant
+
+# Languages
+php
+php-apcu
+php-fpm
+php-pgsql
+php-redis
+php-sodium
+php-xsl
+composer
+
+
