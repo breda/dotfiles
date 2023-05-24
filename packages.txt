@@ -21,6 +21,7 @@ kitty
 # i3 related
 i3status-rust
 dunst
+feh
 
 # General
 git

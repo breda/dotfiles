@@ -13,16 +13,8 @@ set $fileManager "pcmanfm -n"
 set $screenshot "i3-scrot"
 set $launcher "rofi -show run"
 
-set $windowsFont "pango:DejaVu Sans Mono 12"
-
-set $bg-color 	         	#1d1f21
-set $border-color 	 	#0988db
-set $border-color-inactive 	#13496e
-set $inactive-bg-color   	#2d2d2d
-set $text-color          	#f3f4f5
-set $inactive-text-color 	#676E7D
-set $urgent-bg-color     	#E53935
-set $bar-bg 				#1d1f21
+set $primaryMonitor "DisplayPort-0"
+set $rightMonitor "DisplayPort-1"
 
 ###################################################
 ################ Config ###########################
@@ -33,23 +25,25 @@ set $mod Mod4
 font pango:DejaVu Sans Mono 10
 floating_modifier $mod
 
-set $ws0 "0"
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
+set $ws1 "www"
+set $ws2 "code"
+set $ws3 "doc"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $wsRight "R"
+set $ws8 "www2"
+set $ws9 "monitor"
+set $ws0 "coms"
 
-workspace $wsRight output DisplayPort-1
+workspace $ws0 output $rightMonitor
+workspace $ws9 output $rightMonitor
+workspace $ws8 output $rightMonitor
+
+gaps inner 0
+gaps outer 0
 hide_edge_borders smart
-#gaps inner 4
-#gaps outer 4
-default_border pixel 1
+default_border pixel 0
 
 ###################################################
 ############### Startup Apps ######################
@@ -66,7 +60,6 @@ exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcurso
 exec --no-startup-id xautolock -time 15 -locker $lobk -nowlocker $lock -resetsaver -detectsleep
 exec_always --no-startup-id dunst
-exec --no-startup-id redshift -m vidmode -l 36.7060094:3.1931789
 
 ###################################################
 ############### Startup Scripts ###################
@@ -94,38 +87,37 @@ bindsym $mod+Control+b bar mode toggle mainbar
 bindsym $mod+Ctrl+Right move workspace to output right
 bindsym $mod+Ctrl+Left move workspace to output left
 
-bindsym $mod+Shift+q kill
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+q kill
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+h focus left
 
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up 
+bindsym $mod+Shift+l move right
+bindsym $mod+Shift+h move left
 
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-bindsym $mod+h split h
+bindsym $mod+c split h
 bindsym $mod+v split v
 
-bindsym $mod+Shift+f fullscreen toggle
+bindsym $mod+f fullscreen toggle
 
-bindsym $mod+Shift+s layout stacking
-bindsym $mod+Shift+w layout tabbed
-bindsym $mod+Shift+e layout toggle split
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+space floating toggle
 
-bindsym $mod+0 workspace $ws0
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
@@ -135,9 +127,8 @@ bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
-bindsym $mod+p workspace $wsRight
+bindsym $mod+0 workspace $ws0
 
-bindsym $mod+Shift+0 move container to workspace $ws0
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
@@ -147,6 +138,7 @@ bindsym $mod+Shift+6 move container to workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws0
 
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
@@ -157,7 +149,7 @@ mode "resize" {
 	bindsym j resize shrink width 10 px or 10 ppt
 	bindsym k resize grow height 10 px or 10 ppt
 	bindsym l resize shrink height 10 px or 10 ppt
-	bindsym semicolon resize grow width 10 px or 10 ppt
+	bindsym h resize grow width 10 px or 10 ppt
 
 	bindsym Left resize shrink width 10 px or 10 ppt
 	bindsym Down resize grow height 10 px or 10 ppt
@@ -218,7 +210,9 @@ for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [title="Bluetooth Devices"] floating enable
 
 # Slack always opens on the right workspace which is the right monitor
-assign [class="Slack"] $wsRight
+assign [class="Slack"] $ws0
+assign [class="zoom"] $ws5
+assign [class="obsidian"] $ws3
 
 ###################################################
 ############### Bar ###############################

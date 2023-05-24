@@ -27,6 +27,7 @@ function setup() {
 # Install system dependencies
 function deps() {
 	local deps=$(cat $DEPS_FILENAME | grep -v -E "^#" | tr "\n" " ")
+
 	echo "#####################################################"
 	echo "########### Installing Official Packages ############"
 	echo "#####################################################"
@@ -44,7 +45,7 @@ case $1 in
 		;;
 
 	*)
-		echo "No idea what that is"
+		echo "Did you mean setup? or deps?"
 		;;
 esac
 

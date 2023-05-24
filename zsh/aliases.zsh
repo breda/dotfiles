@@ -6,6 +6,8 @@
 alias cd="z"
 alias c="z"
 alias cp="cp -i"
+alias rm="rm -i"
+alias mv="mv -i"
 alias df='df --sync -h'
 alias free='free -wh --mega'
 alias vim="nvim"
@@ -16,7 +18,7 @@ alias cls="clear"
 alias fz="zoxide query -i"
 
 alias ll="ls --color -lhF --group-directories-first"
-alias l="ls --color -lhaF --group-directories-first"
+alias l="ls --color -lhAF --group-directories-first"
 alias lf="ls --color -lhaF | grep -v /"
 
 # Tmux

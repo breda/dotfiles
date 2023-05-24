@@ -22,7 +22,7 @@ set -g renumber-windows on
 
 # Mouse on & history limit
 set -g mouse on
-set -g history-limit 5000
+set -g history-limit 10000
 
 # loud or quiet? quit for sure
 set-option -g visual-activity off
