@@ -15,16 +15,32 @@
         ui = true
 [core]
         excludesfile = ~/.gitignore
+        pager = delta
         editor = vim
 [apply]
         whitespace = nowarn
+
 [mergetool]
         keepBackup = false
+
 [difftool]
         prompt = false
+
 [help]
         autocorrect = 1
+
 [merge]
-	log = 60
-[safe]
-	directory = /var/www/test
+        log = 60
+        conflictstyle = diff3
+
+[interactive]
+        diffFilter = delta --color-only
+
+[delta]
+        navigate = true    # use n and N to move between diff sections
+        light = false
+        side-by-side = true
+        line-numbers = true
+
+[diff]
+        colorMoved = default

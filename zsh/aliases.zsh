@@ -3,19 +3,18 @@
 ############
 
 # General
-alias cd="z"
-alias c="z"
 alias cp="cp -i"
 alias rm="rm -i"
 alias mv="mv -i"
 alias df='df --sync -h'
 alias free='free -wh --mega'
-alias vim="nvim"
-alias v="nvim"
-alias vi="nvim"
 alias n="nvim"
 alias cls="clear"
-alias fz="zoxide query -i"
+alias cat="bat"
+
+alias pz="zoxide query -i | xargs nvim"
+alias fz="ls | fzf --preview-window=up --preview=\"bat {1} --color=always\" | xargs nvim"
+alias hz="tldr --list | fzf --preview-window=up --preview=\"tldr {1} --color=always\" | xargs tldr"
 
 alias ll="ls --color -lhF --group-directories-first"
 alias l="ls --color -lhAF --group-directories-first"
@@ -97,5 +96,5 @@ function randb() {
 }
 
 # Display control
-alias rightDark="xrandr --output $RIGHT_DISPLAY --brightness 0.55"
-alias rightLight="xrandr --output $RIGHT_DISPLAY --brightness 1"
+alias rightDarken="xrandr --output DisplayPort-1 --brightness 0.55"
+alias rightLighten="xrandr --output DisplayPort-1 --brightness 1"

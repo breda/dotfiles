@@ -2,28 +2,35 @@
 
 # Prefix is Ctrl+a
 unbind C-b
-set-option -g prefix C-a
-bind-key C-a send-prefix
+set-option -g prefix C-e
+bind-key C-e send-prefix
 
 # Unbinds
 unbind -n Enter
 unbind -n C-BSpace
+unbind -n C-r
 
-# Rebinds
-bind-key p previous-window
+# windows
+bind c new-window -c "#{pane_current_path}"
+bind h split-window -c "#{pane_current_path}"
+bind v split-window -h -c "#{pane_current_path}"
+
+bind N previous-window
+bind n next-window
+
+# zoom pane
+bind b resize-pane -Z
+
+# panes
+bind o last-pane
+bind l last-window
 bind L switch-client -l
 
-# Make sure new windows & splits open in the same working dir 
-bind 'h' split-window -c "#{pane_current_path}"
-bind 'v' split-window -h -c "#{pane_current_path}"
-bind c new-window -c "#{pane_current_path}"
-
 # Status bar toggle
-bind b set-option -g status
+bind B set-option -g status
 
-# clear screen (Alt-Backspace)
-bind-key -n M-BSpace send-keys 'C-l'
+# clear screen
+bind-key -n C-S-r send-keys 'C-l'
 
 # Reload config
 bind R source-file ~/.tmux.conf
-

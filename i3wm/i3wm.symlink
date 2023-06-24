@@ -12,6 +12,8 @@ set $browser2 "firefix-developer-edition"
 set $fileManager "pcmanfm -n"
 set $screenshot "i3-scrot"
 set $launcher "rofi -show run"
+set $calc "rofi -show calc"
+set $ssh "rofi -show ssh"
 
 set $primaryMonitor "DisplayPort-0"
 set $rightMonitor "DisplayPort-1"
@@ -31,7 +33,7 @@ set $ws3 "doc"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
-set $ws7 "7"
+set $ws7 "music"
 set $ws8 "www2"
 set $ws9 "monitor"
 set $ws0 "coms"
@@ -50,16 +52,22 @@ default_border pixel 0
 ###################################################
 
 exec_always --no-startup-id feh --randomize --bg-scale /home/breda/Pictures/wallpapers/*
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore
-exec --no-startup-id nm-applet
-exec --no-startup-id pa-applet
-exec --no-startup-id xfce4-power-manager
-exec --no-startup-id blueman-applet
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcurso
-exec --no-startup-id xautolock -time 15 -locker $lobk -nowlocker $lock -resetsaver -detectsleep
-exec_always --no-startup-id dunst
+
+# exec --no-startup-id xautolock -time 15 -locker $lobk -nowlocker $lock -resetsaver -detectsleep
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id xfce4-power-manager
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id solaar -w hide
+exec --no-startup-id blueman-applet
+exec --no-startup-id nm-applet
+exec --no-startup-id pa-applet
+exec --no-startup-id dunst
+
+exec obsidian
+exec spotify
+exec zoom
 
 ###################################################
 ############### Startup Scripts ###################
@@ -71,6 +79,13 @@ exec_always --no-startup-id xrandr --output DisplayPort-0 --mode 3440x1440 --rat
 # Rotate rigfht monitor to correct position
 exec_always --no-startup-id xrandr --output DisplayPort-1 --rotate right
 
+# Set correct keymap as Colemak DHm
+exec_always localectl --no-convert set-x11-keymap us
+exec_always localectl --no-convert set-keymap us
+exec_always setxkbmap us
+
+
+
 ###################################################
 ############### Bindings ##########################
 ###################################################
@@ -80,12 +95,19 @@ bindsym $mod+Shift+b exec $browser3
 bindsym F12 exec i3
 bindsym Home exec $fileManager
 bindsym $mod+a exec $launcher
+bindsym $mod+c exec $calc
+bindsym $mod+s exec $ssh
 bindsym $mod+Return exec $terminal
 bindsym $mod+Mod1+l exec $lock
 bindsym $mod+Mod1+B border toggle
 bindsym $mod+Control+b bar mode toggle mainbar
 bindsym $mod+Ctrl+Right move workspace to output right
 bindsym $mod+Ctrl+Left move workspace to output left
+
+bindsym XF86AudioPlay exec playerctl --player spotify play
+bindsym XF86AudioStop exec playerctl --player spotify pause
+bindsym XF86AudioNext exec playerctl --player spotify next
+bindsym XF86AudioPrev exec playerctl --player spotify previous
 
 bindsym $mod+q kill
 bindsym $mod+j focus down
@@ -98,22 +120,17 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up 
-bindsym $mod+Shift+l move right
-bindsym $mod+Shift+h move left
-
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-bindsym $mod+c split h
-bindsym $mod+v split v
+bindsym $mod+Shift+h split h
+bindsym $mod+Shift+v split v
 
 bindsym $mod+f fullscreen toggle
 
-bindsym $mod+s layout stacking
+bindsym $mod+g layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 bindsym $mod+space floating toggle
@@ -211,8 +228,9 @@ for_window [title="Bluetooth Devices"] floating enable
 
 # Slack always opens on the right workspace which is the right monitor
 assign [class="Slack"] $ws0
-assign [class="zoom"] $ws5
 assign [class="obsidian"] $ws3
+assign [class="zoom"] $ws5
+assign [class="Spotify"] $ws7
 
 ###################################################
 ############### Bar ###############################

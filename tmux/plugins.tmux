@@ -5,7 +5,7 @@ set -g @open_browser_key 'B'
 set -g @new_browser_window 'google-chrome-stable --new-window'
 
 # Session switch
-set -g @session-wizard 's'
+set -g @session-wizard 'y'
 set -g @session-wizard-width 25
 
 # Resurect
