@@ -3,6 +3,7 @@ add_newline = false
 format = """\
   $directory\
   $sudo\
+  $python\
   $line_break\
   $character\
   """
@@ -57,3 +58,11 @@ staged = 'g'
 renamed = 'r'
 deleted = 'd'
 diverged = "D"
+
+ [python]
+symbol = ''
+# format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+format = '⁞  venv: [${version}]($style)'
+style = "dimmed purple"
+pyenv_version_name = true
+detect_folders = [".venv"]
