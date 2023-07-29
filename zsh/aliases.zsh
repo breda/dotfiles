@@ -59,6 +59,7 @@ alias gaa="git add --all"
 alias gdf="git diff"
 alias gr="git rebase"
 alias gri="git rebase -i"
+alias lg="lazygit"
 # Push new branch
 function gpushn() {
 	git push --set-upstream origin `git branch --show-current`
