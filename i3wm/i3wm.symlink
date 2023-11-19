@@ -109,6 +109,10 @@ bindsym XF86AudioStop exec playerctl --player spotify pause
 bindsym XF86AudioNext exec playerctl --player spotify next
 bindsym XF86AudioPrev exec playerctl --player spotify previous
 
+# Rebinding mouse clicks
+#bindsym S exec xte 'mousedown 4' 'usleep 200' 'mouseup 4'
+#bindsym S exec xte 'mousedown 5' 'usleep 200' 'mouseup 5'
+
 bindsym $mod+q kill
 bindsym $mod+j focus down
 bindsym $mod+k focus up

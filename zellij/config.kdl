@@ -8,13 +8,15 @@ keybinds {
         bind "Ctrl g" { SwitchToMode "locked"; }
 
         // Actions
-        bind "Ctrl n" { NewPane; }
+        bind "Ctrl v" { NewPane "Right"; }
+        bind "Ctrl h" { NewPane "Down"; }
+        bind "Ctrl n" { NewTab; SwitchToMode "Normal"; }
 
         // Navigation
-        bind "Ctrl h" { MoveFocus "Left"; }
-        bind "Ctrl j" { MoveFocus "Down"; }
-        bind "Ctrl k" { MoveFocus "Up"; }
-        bind "Ctrl l" { MoveFocus "Right"; }
+        bind "Ctrl h" { MoveFocus "Left"; SwitchToMode "Normal"; }
+        bind "Ctrl j" { MoveFocus "Down"; SwitchToMode "Normal"; }
+        bind "Ctrl k" { MoveFocus "Up"; SwitchToMode "Normal"; }
+        bind "Ctrl l" { MoveFocus "Right"; SwitchToMode "Normal"; }
     }
 
     locked {
