@@ -37,7 +37,7 @@ set $ws7 "music"
 set $ws8 "www2"
 set $ws9 "monitor"
 set $ws0 "coms"
-
+#
 workspace $ws0 output $rightMonitor
 workspace $ws9 output $rightMonitor
 workspace $ws8 output $rightMonitor
@@ -73,11 +73,11 @@ exec zoom
 ############### Startup Scripts ###################
 ###################################################
 
-# Ensure the main monitor is running at 144hz
-exec_always --no-startup-id xrandr --output DisplayPort-0 --mode 3440x1440 --rate 144.00
+# Ensure the main monitor is running at correct resulition
+exec_always --no-startup-id xrandr --output DisplayPort-0 --mode 5120x2160 --rate 72.00
 
-# Rotate rigfht monitor to correct position
-exec_always --no-startup-id xrandr --output DisplayPort-1 --rotate right
+# Rotate right monitor to correct position
+exec_always --no-startup-id xrandr --output DisplayPort-1 --mode 2560x1440 --rotate right --rate 143.97 
 
 # Set correct keymap as Colemak DHm
 exec_always localectl --no-convert set-x11-keymap us
@@ -139,28 +139,17 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 bindsym $mod+space floating toggle
 
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws0
-
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws0
-
+# bindsym $mod+Alt+1 move container to workspace $ws1
+# bindsym $mod+Alt+2 move container to workspace $ws2
+# bindsym $mod+Shift+3 move container to workspace $ws3
+# bindsym $mod+Shift+4 move container to workspace $ws4
+# bindsym $mod+Shift+5 move container to workspace $ws5
+# bindsym $mod+Shift+6 move container to workspace $ws6
+# bindsym $mod+Shift+7 move container to workspace $ws7
+# bindsym $mod+Shift+8 move container to workspace $ws8
+# bindsym $mod+Shift+9 move container to workspace $ws9
+# bindsym $mod+Shift+0 move container to workspace $ws0
+#
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
@@ -202,40 +191,6 @@ client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
 client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 
 
-# Floating: Open specific applications in floating mode
-for_window [title="alsamixer"] floating enable border pixel 1
-for_window [class="calamares"] floating enable border normal
-for_window [class="Clipgrab"] floating enable
-for_window [title="File Transfer*"] floating enable
-for_window [class="Galculator"] floating enable border pixel 1
-for_window [class="GParted"] floating enable border normal
-for_window [title="i3_help"] floating enable sticky enable border normal
-for_window [class="Lightdm-settings"] floating enable
-for_window [class="Lxappearance"] floating enable sticky enable border normal
-for_window [class="Manjaro-hello"] floating enable
-for_window [class="Manjaro Settings Manager"] floating enable border normal
-for_window [title="MuseScore: Play Panel"] floating enable
-for_window [class="Nitrogen"] floating enable sticky enable border normal
-for_window [class="Oblogout"] fullscreen enable
-for_window [class="octopi"] floating enable
-for_window [title="About Pale Moon"] floating enable
-for_window [class="Pamac-manager"] floating enable
-for_window [class="Pavucontrol"] floating enable
-for_window [class="qt5ct"] floating enable sticky enable border normal
-for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
-for_window [class="Simple-scan"] floating enable border normal
-for_window [class="(?i)System-config-printer.py"] floating enable border normal
-for_window [class="Skype"] floating enable border normal
-for_window [class="Timeset-gui"] floating enable border normal
-for_window [class="(?i)virtualbox"] floating enable border normal
-for_window [title="Bluetooth Devices"] floating enable
-
-# Slack always opens on the right workspace which is the right monitor
-assign [class="Slack"] $ws0
-assign [class="obsidian"] $ws3
-assign [class="zoom"] $ws5
-assign [class="Spotify"] $ws7
-
 ###################################################
 ############### Bar ###############################
 ###################################################
@@ -245,7 +200,7 @@ bar {
 	id mainbar
 	output DisplayPort-1
 	position top
-	font pango:DejaVu Sans Mono 10
+	font pango:DejaVu Sans Mono 12
 	height 25
 
 	colors {
