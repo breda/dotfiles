@@ -17,13 +17,6 @@ info_bg = "#0f111a"
 info_fg = "#20bf6b"
 
 
-[[block]]
-block = "custom"
-command = '''bash /home/breda/.dotfiles/scripts/i3status-rs-healthcheck.sh https://store-api.trulyexperiences.com/health https://admin-api.trulyexperiences.com/health'''
-format = "truly $text"
-json = true
-interval = 20
-
 # Blocks
 [[block]]
 block = "temperature"
