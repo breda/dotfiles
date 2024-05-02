@@ -74,7 +74,7 @@ exec zoom
 ###################################################
 
 # Ensure the main monitor is running at 144hz
-exec_always --no-startup-id xrandr --output DisplayPort-0 --mode 3440x1440 --rate 144.00
+exec_always --no-startup-id xrandr --output DisplayPort-0 --mode 5120x2160 --rate 72.00
 
 # Rotate rigfht monitor to correct position
 exec_always --no-startup-id xrandr --output DisplayPort-1 --rotate right
