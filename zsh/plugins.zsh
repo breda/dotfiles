@@ -3,26 +3,26 @@ export STARSHIP_CONFIG="$HOME/.dotfiles/zsh/starship.toml"
 eval "$(starship init zsh)"
 
 # Init zoxide
-eval "$(zoxide init zsh)"
+# eval "$(zoxide init zsh)"
 
 # NVM
-[ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
-source /usr/share/nvm/nvm.sh
-source /usr/share/nvm/bash_completion
-source /usr/share/nvm/install-nvm-exec
+source $(brew --prefix nvm)/nvm.sh
 
 # PyENV
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
+#export PYENV_ROOT="$HOME/.pyenv"
+#export PATH="$PYENV_ROOT/bin:$PATH"
+#eval "$(pyenv init --path)"
+#eval "$(pyenv init -)"
 
-# PHPEnv
-export PATH="$HOME/.phpenv/bin:$PATH"
-eval "$(phpenv init -)"
+# PHPenv
+export PHPENV_ROOT="/Users/breda/.phpenv"
+if [ -d "${PHPENV_ROOT}" ]; then
+  export PATH="${PHPENV_ROOT}/bin:${PATH}"
+  eval "$(phpenv init -)"
+fi
 
 # ZSH ask (OpenAPI client): https://github.com/Licheam/zsh-ask
-source $HOME/.dotfiles/zsh/plugins/zsh-ask/zsh-ask.zsh
+#source $HOME/.dotfiles/zsh/plugins/zsh-ask/zsh-ask.zsh
 
 # SSH quick connect plugin: https://github.com/breda/zsh-ssh-quickconnect
-source $HOME/.dotfiles/zsh/plugins/zsh-ssh-quickconnect/ssh-quickconnect.plugin.sh
+#source $HOME/.dotfiles/zsh/plugins/zsh-ssh-quickconnect/ssh-quickconnect.plugin.sh
