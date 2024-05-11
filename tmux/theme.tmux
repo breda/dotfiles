@@ -5,7 +5,7 @@
 # Nova theme/bar
 ### THEME ###
 
-set -g @nova-pane "#W"
+set -g @nova-pane "[#I]  #W"
 set -g @nova-rows 0
 set -g @nova-nerdfonts false
 

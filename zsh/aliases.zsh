@@ -16,8 +16,8 @@ alias pz="zoxide query -i | xargs nvim"
 alias fz="ls | fzf --preview-window=up --preview=\"bat {1} --color=always\" | xargs nvim"
 alias hz="tldr --list | fzf --preview-window=up --preview=\"tldr {1} --color=always\" | xargs tldr"
 
-alias ll="ls --color -lhF --group-directories-first"
-alias l="ls --color -lhAF --group-directories-first"
+alias ll="ls --color -lhF"
+alias l="ls --color -lhAF"
 alias lf="ls --color -lhaF | grep -v /"
 
 # Tmux
@@ -86,6 +86,10 @@ alias sr="ffmpeg -y -f pulse -i default -f x11grab -r 25 -s 1920x1080 -i :0.0+0,
 # LXD/LXC
 alias lxcll="lxc list -c n,s,image.os,image.version,4,m,D,u,a,P"
 alias lxcl="lxc list -c n,s,4"
+
+# Kubernetes
+alias kctl="kubectl"
+alias mc="minikube"
 
 # Crypto
 # Generate random bytes in hex/base64: randhex OUTPUT NUM_BYTES
